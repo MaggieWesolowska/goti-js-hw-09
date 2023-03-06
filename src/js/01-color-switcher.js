@@ -9,9 +9,9 @@ function getRandomHexColor() {
 let colorSwitcher;
 
 startBtn.addEventListener('click', () => {
-   colorSwitcher = setInterval(() => {
-    (getRandomHexColor)}, 1000);
-   return body.style.backgroundColor === colorSwitcher;
+    colorSwitcher = setInterval(() => {
+    const randomColor = getRandomHexColor(); 
+    body.style.backgroundColor = randomColor;}, 1000);
 });
 
 stopBtn.addEventListener('click', () => {
