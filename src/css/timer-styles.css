@@ -22,17 +22,22 @@ input {
     border-radius: 5px;
 }
 
-.button {
-  color: #fff;
-  padding: 6px 14px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
-  font-size: 30px;
-  border-radius: 6px;
-  border: none;
-  cursor: pointer;
+button {
+    text-align: center;
+    color: #fff;
+    padding: 6px 14px;
+    font-size: 30px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    background: #6E6D70;
+    transition: box-shadow, 1s, ease-in-out;
+}
 
-  background: #6E6D70;
-  box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1), inset 0px 0.5px 0.5px rgba(255, 255, 255, 0.5), 0px 0px 0px 0.5px rgba(0, 0, 0, 0.12);
+button:hover, button:focus {
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12),
+          0px 4px 4px rgba(0, 0, 0, 0.06),
+          1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
 .timer {
@@ -41,7 +46,7 @@ input {
     align-items: center;
 }
 .field {
-    margin: 15px 30px;
+    margin: 15px 20px;
     width: 120px;
     background: rgba(0,0,0,0.5);
     text-align: center;
@@ -67,6 +72,4 @@ input {
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     box-shadow: 15px 10px 20px #000;
-
-
 }
