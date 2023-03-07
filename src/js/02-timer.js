@@ -1,6 +1,7 @@
 import '../css/timer-styles.css';
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
+import Notiflix from 'notiflix';
 
 const getDate = document.getElementById('datetime-picker');
 const startBtn = document.querySelector('button[data-start]');
@@ -29,7 +30,7 @@ let countDownDate = new Date().getTime();
 
 const setCountdown = setInterval(function() {
   let now = new Date().getTime();
-  let timeDistance = countDownDate - now;
+  let distance = countDownDate - now;
   
   function convertMs(ms) {
     const second = 1000;
@@ -42,10 +43,15 @@ const setCountdown = setInterval(function() {
     const minutes = Math.floor(((ms % day) % hour) / minute);
     const seconds = Math.floor((((ms % day) % hour) % minute) / second);
   
-    return { days, hours, minutes, seconds };
-  }
+    // return { days, hours, minutes, seconds };
 
-  if (timeDistance < 0) {
+    document.querySelector('[data-days]').innerHTML = days;
+    document.querySelector('[data-hours]').innerHTML = hours;
+    document.querySelector('[data-minutes]').innerHTML = minutes;
+    document.querySelector('[data-seconds]').innerHTML = seconds;
+  };
+
+  if (distance < 0) {
     clearInterval(setCountdown);
   }
 }, 1000);
