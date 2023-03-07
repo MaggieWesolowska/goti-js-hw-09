@@ -5,12 +5,8 @@ import Notiflix from 'notiflix';
 
 const getDate = document.getElementById('datetime-picker');
 const startBtn = document.querySelector('button[data-start]');
-const days = document.querySelector('[data-days]');
-const hours = document.querySelector('[data-hours]');
-const minutes = document.querySelector('[data-minutes]');
-const seconds = document.querySelector('[data-seconds]');
 
-startBtn.addEventListener('click', () => {
+startBtn.addEventListener('click',() =>{
 
 });
 
@@ -24,11 +20,16 @@ const fp = flatpickr(getDate, () => {
           console.log(selectedDates[0]);
         },
       };
+      let countDownDate = new Date().getTime();
+  let now = new Date().getTime();
+  if (countDownDate <= now) {
+    Notiflix.Notify.warning('Please choose a date in the future');
+  } else {
+    setCountdown();
+  }
   });
-
-let countDownDate = new Date().getTime();
-
-const setCountdown = setInterval(function() {
+  
+const setCountdown = setInterval(() => {
   let now = new Date().getTime();
   let distance = countDownDate - now;
   
@@ -43,14 +44,13 @@ const setCountdown = setInterval(function() {
     const minutes = Math.floor(((ms % day) % hour) / minute);
     const seconds = Math.floor((((ms % day) % hour) % minute) / second);
   
-    // return { days, hours, minutes, seconds };
-
+    return { days, hours, minutes, seconds };
+  };
     document.querySelector('[data-days]').innerHTML = days;
     document.querySelector('[data-hours]').innerHTML = hours;
     document.querySelector('[data-minutes]').innerHTML = minutes;
     document.querySelector('[data-seconds]').innerHTML = seconds;
-  };
-
+  
   if (distance < 0) {
     clearInterval(setCountdown);
   }
