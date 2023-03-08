@@ -10,10 +10,13 @@ function getRandomHexColor() {
 
 let colorTimer;
 
+const assignBodyColor = () => {
+    const randomColor = getRandomHexColor();
+    body.style.backgroundColor = randomColor;
+}
+
 startBtn.addEventListener('click', () => {
-    colorTimer = setInterval(() => {
-    const randomColor = getRandomHexColor(); 
-    body.style.backgroundColor = randomColor;}, 1000);
+    colorTimer = setInterval(assignBodyColor, 1000);
 });
 
 stopBtn.addEventListener('click', () => {

@@ -50,23 +50,32 @@ function convertMs(ms) {
 
 let addLeadingZero = value => value.toString().padStart(2, 0);
 
+function updateValuesInHTML(distance) {
+  const { days, hours, minutes, seconds } = convertMs(distance);
+  daysCount.textContent = addLeadingZero(days);
+  hoursCount.textContent = addLeadingZero(hours);
+  minutesCount.textContent = addLeadingZero(minutes);
+  secondsCount.textContent = addLeadingZero(seconds);
+}
+
+function checkTimerInput() {
+  return (
+    daysCount.textContent === '00' &&
+    hoursCount.textContent === '00' &&
+    minutesCount.textContent === '00' &&
+    secondsCount.textContent === '00'
+  );
+}
+
 startBtn.addEventListener('click', () => {
   function timeCounter() {
     let now = new Date();
     let distance = countdownDate - now;
 
-    const { days, hours, minutes, seconds } = convertMs(distance);
-    daysCount.textContent = addLeadingZero(days);
-    hoursCount.textContent = addLeadingZero(hours);
-    minutesCount.textContent = addLeadingZero(minutes);
-    secondsCount.textContent = addLeadingZero(seconds);
+    updateValuesInHTML(distance);
 
-    if (
-      daysCount.textContent === '00' &&
-      hoursCount.textContent === '00' &&
-      minutesCount.textContent === '00' &&
-      secondsCount.textContent === '00'
-    ) {
+    const isTimerFinished = checkTimerInput();
+    if (isTimerFinished) {
       clearInterval(setCountdown);
     }
   }
