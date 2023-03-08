@@ -1,3 +1,8 @@
+.selectors {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 button {
     text-align: center;
     color: #fff;
