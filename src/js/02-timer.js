@@ -33,6 +33,8 @@ const options = {
   },
 };
 
+flatpickr(getDate, options);
+
 function convertMs(ms) {
   const second = 1000;
   const minute = second * 60;
@@ -81,5 +83,3 @@ startBtn.addEventListener('click', () => {
 
   const setCountdown = setInterval(timeCounter, 1000);
 });
-
-const fp = flatpickr(getDate, options);
