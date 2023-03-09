@@ -10,8 +10,8 @@ function createPromise(position, delay) {
 }
 createPromise(2, 1500)
   .then(({ position, delay }) => {
-    console.log(`Notiflix.Notify.success(${position} in ${delay}ms)`);
+    console.log(Notiflix.Notify.success`(${position} in ${delay}ms)`);
   })
   .catch(({ position, delay }) => {
-    console.log(`Notiflix.Notify.failure(${position} in ${delay}ms)`);
+    console.log(Notiflix.Notify.failure`(${position} in ${delay}ms)`);
   });
