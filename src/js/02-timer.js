@@ -9,7 +9,6 @@ const hoursCount = document.querySelector('[data-hours]');
 const minutesCount = document.querySelector('[data-minutes]');
 const secondsCount = document.querySelector('[data-seconds]');
 
-startBtn.setAttribute('disabled', 'disabled');
 let countdownDate = new Date();
 
 const options = {
